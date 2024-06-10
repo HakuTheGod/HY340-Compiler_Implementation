@@ -1,0 +1,61 @@
+al.l: In function ‘yylex’:
+al.l:118:2: error: ‘add_Token’ undeclared (first use in this function)
+  118 | {GREATER_EQUAL} {add_Token = addToList(yylineno, numtoken++, "OPERATOR", yytext, "GREATER_EQUAL","<-enumerated");}
+      |  ^~~~~~~~~
+al.l:118:2: note: each undeclared identifier is reported only once for each function it appears in
+al.l:127:14: warning: initialization of ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  127 |   char tmp = (char*) malloc(sizeof(char));
+      |              ^
+al.l:132:25: error: invalid type argument of unary ‘*’ (have ‘int’)
+  132 |               case 'n': *(tmp+i) = '\n'; break;
+      |                         ^~~~~~~~
+al.l:133:25: error: invalid type argument of unary ‘*’ (have ‘int’)
+  133 |               case 't': *(tmp+i) = '\t'; break;
+      |                         ^~~~~~~~
+al.l:134:26: error: invalid type argument of unary ‘*’ (have ‘int’)
+  134 |               case '\\': *(tmp+i) = '\\'; break;
+      |                          ^~~~~~~~
+al.l:142:11: error: invalid type argument of unary ‘*’ (have ‘int’)
+  142 |           *(tmp+i) = '\n';
+      |           ^~~~~~~~
+al.l:146:18: error: lvalue required as left operand of assignment
+  146 |           (tmp+i)=c;
+      |                  ^
+al.l:148:26: warning: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Wint-conversion]
+  148 |       tmp=(char*)realloc(tmp , ((i++)+1) * sizeof(char));
+      |                          ^~~
+      |                          |
+      |                          char
+In file included from al.c:23:
+/usr/include/stdlib.h:550:14: note: expected ‘void *’ but argument is of type ‘char’
+  550 | extern void *realloc (void *__ptr, size_t __size)
+      |              ^~~~~~~
+al.l:148:10: warning: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  148 |       tmp=(char*)realloc(tmp , ((i++)+1) * sizeof(char));
+      |          ^
+al.l:149:7: error: invalid type argument of unary ‘*’ (have ‘int’)
+  149 |       *(tmp+i)= '\0';
+      |       ^~~~~~~~
+al.l:156:37: error: ‘type’ undeclared (first use in this function)
+  156 |       addToList(yylineno, numtoken, type, val, name, type2);
+      |                                     ^~~~
+al.l:156:43: error: ‘val’ undeclared (first use in this function)
+  156 |       addToList(yylineno, numtoken, type, val, name, type2);
+      |                                           ^~~
+al.l:156:48: error: ‘name’ undeclared (first use in this function)
+  156 |       addToList(yylineno, numtoken, type, val, name, type2);
+      |                                                ^~~~
+al.l:156:54: error: ‘type2’ undeclared (first use in this function)
+  156 |       addToList(yylineno, numtoken, type, val, name, type2);
+      |                                                      ^~~~~
+al.l: In function ‘addToList’:
+al.l:216:24: error: expected ‘;’ before ‘head’
+  216 |     head->type2 = type2
+      |                        ^
+      |                        ;
+  217 |     head->next = NULL;
+      |     ~~~~                
+al.l: In function ‘main’:
+al.l:253:3: warning: implicit declaration of function ‘alpha_yylex’ [-Wimplicit-function-declaration]
+  253 |   alpha_yylex(NULL);
+      |   ^~~~~~~~~~~

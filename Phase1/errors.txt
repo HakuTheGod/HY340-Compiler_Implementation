@@ -1,0 +1,83 @@
+al.l: In function ‘yylex’:
+al.l:88:2: error: ‘add_Token’ undeclared (first use in this function)
+   88 | {IF}  {add_Token = addToList(yylineno, numtoken++, "KEYWORD", yytext,"IF", "<-enumerated");}
+      |  ^~~~~~~~~
+al.l:88:2: note: each undeclared identifier is reported only once for each function it appears in
+al.l:88:14: warning: implicit declaration of function ‘addToList’ [-Wimplicit-function-declaration]
+   88 | {IF}  {add_Token = addToList(yylineno, numtoken++, "KEYWORD", yytext,"IF", "<-enumerated");}
+      |              ^~~~~~~~~
+al.l:125:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  125 |   char tmp = (char) malloc(sizeof(char));
+      |              ^
+al.l:130:25: error: invalid type argument of unary ‘*’ (have ‘int’)
+  130 |               case 'n': *(tmp+i) = '\n'; break;
+      |                         ^~~~~~~~
+al.l:131:25: error: invalid type argument of unary ‘*’ (have ‘int’)
+  131 |               case 't': *(tmp+i) = '\t'; break;
+      |                         ^~~~~~~~
+al.l:132:26: error: invalid type argument of unary ‘*’ (have ‘int’)
+  132 |               case '\\': *(tmp+i) = '\\'; break;
+      |                          ^~~~~~~~
+al.l:140:11: error: invalid type argument of unary ‘*’ (have ‘int’)
+  140 |           *(tmp+i) = '\n';
+      |           ^~~~~~~~
+al.l:144:18: error: lvalue required as left operand of assignment
+  144 |           (tmp+i)=c;
+      |                  ^
+al.l:146:26: warning: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Wint-conversion]
+  146 |       tmp=(char )realloc(tmp , ((i++)+1) * sizeof(char));
+      |                          ^~~
+      |                          |
+      |                          char
+In file included from al.c:23:
+/usr/include/stdlib.h:550:14: note: expected ‘void *’ but argument is of type ‘char’
+  550 | extern void *realloc (void *__ptr, size_t __size)
+      |              ^~~~~~~
+al.l:146:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  146 |       tmp=(char )realloc(tmp , ((i++)+1) * sizeof(char));
+      |           ^
+al.l:147:7: error: invalid type argument of unary ‘*’ (have ‘int’)
+  147 |       *(tmp+i)= '\0';
+      |       ^~~~~~~~
+al.l:149:3: error: ‘token_no’ undeclared (first use in this function)
+  149 |   token_no++;
+      |   ^~~~~~~~
+al.l:154:29: error: ‘line_no’ undeclared (first use in this function)
+  154 |       add_Token = addToList(line_no, numtoken, type, val, name, type2);
+      |                             ^~~~~~~
+al.l:154:48: error: ‘type’ undeclared (first use in this function)
+  154 |       add_Token = addToList(line_no, numtoken, type, val, name, type2);
+      |                                                ^~~~
+al.l:154:54: error: ‘val’ undeclared (first use in this function)
+  154 |       add_Token = addToList(line_no, numtoken, type, val, name, type2);
+      |                                                      ^~~
+al.l:154:59: error: ‘name’ undeclared (first use in this function)
+  154 |       add_Token = addToList(line_no, numtoken, type, val, name, type2);
+      |                                                           ^~~~
+al.l:154:65: error: ‘type2’ undeclared (first use in this function)
+  154 |       add_Token = addToList(line_no, numtoken, type, val, name, type2);
+      |                                                                 ^~~~~
+al.l: At top level:
+al.l:204:6: warning: conflicting types for ‘addToList’
+  204 | void addToList(int line_no, int numtoken, char* type, char* val, char* name, char* type2){
+      |      ^~~~~~~~~
+al.l:88:14: note: previous implicit declaration of ‘addToList’ was here
+   88 | {IF}  {add_Token = addToList(yylineno, numtoken++, "KEYWORD", yytext,"IF", "<-enumerated");}
+      |              ^~~~~~~~~
+al.l: In function ‘addToList’:
+al.l:214:24: error: expected ‘;’ before ‘head’
+  214 |     head->type2 = type2
+      |                        ^
+      |                        ;
+  215 |     head->next = NULL;
+      |     ~~~~                
+al.l: In function ‘main’:
+al.l:251:3: warning: implicit declaration of function ‘alpha_yylex’ [-Wimplicit-function-declaration]
+  251 |   alpha_yylex(NULL);
+      |   ^~~~~~~~~~~
+al.l:252:3: error: too few arguments to function ‘Print_Token_list’
+  252 |   Print_Token_list();
+      |   ^~~~~~~~~~~~~~~~
+al.l:232:6: note: declared here
+  232 | void Print_Token_list(int line_no, int numtoken, char* type, char* val, char* name, char* type2){
+      |      ^~~~~~~~~~~~~~~~
